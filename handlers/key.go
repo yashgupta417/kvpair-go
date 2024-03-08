@@ -44,3 +44,11 @@ func DeleteKey(w http.ResponseWriter, r *http.Request) {
 	services.DeleteKeyFromMap(key)
 	w.WriteHeader(200)
 }
+
+func UpsertKeys(w http.ResponseWriter, r *http.Request) {
+	queryParams := r.URL.Query()
+
+	for key, value := range queryParams {
+		services.UpsertKeyToMap(key, value[0])
+	}
+}

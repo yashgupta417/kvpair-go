@@ -19,6 +19,7 @@ func main() {
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/key", handlers.GetKey)
 	http.HandleFunc("/key/set", handlers.UpsertKey)
+	http.HandleFunc("/key/set/many", handlers.UpsertKeys)
 	http.HandleFunc("/key/remove", handlers.DeleteKey)
 
 	log.Printf("Starting server....")
